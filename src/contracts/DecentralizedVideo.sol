@@ -3,13 +3,13 @@ pragma solidity >=0.4.22 <0.9.0;
 
 contract DecentralizedVideo {
     /* Number that stores the Count of all Videos ever will be created */
-    uint public videoCount = 0;
+    uint256 public videoCount = 0;
     string public name = "DecentralizedVideo";
     /* Mapping the ID to Video (Struct) */
-    mapping(uint => Video) public videos;
+    mapping(uint256 => Video) public videos;
     /* Struct to model a Video */
     struct Video {
-        uint id;
+        uint256 id;
         /* Location from IPFS */
         string hash;
         string title;
@@ -17,7 +17,7 @@ contract DecentralizedVideo {
         address author;
     }
     /* Create an Event when a new Video is stored */
-    event VideoUploaded(uint id, string hash, string title, address author);
+    event VideoUploaded(uint256 id, string hash, string title, address author);
 
     constructor() public {}
 

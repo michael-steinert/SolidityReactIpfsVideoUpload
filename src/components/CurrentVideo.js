@@ -1,11 +1,10 @@
 import ReactPlayer from "react-player";
-import {Box, Typography} from "@material-ui/core";
+import {Grid, Typography} from "@material-ui/core";
 
 const CurrentVideo = ({currentTitle, currentHash}) => {
     return (
-        <Box>
+        <Grid>
             <Typography variant="h3">{currentTitle}</Typography>
-            {console.log(`https://ipfs.infura.io/ipfs/${currentHash}`)}
             <ReactPlayer
                 url={`https://ipfs.infura.io/ipfs/${currentHash}`}
                 width={"150px"}
@@ -13,7 +12,7 @@ const CurrentVideo = ({currentTitle, currentHash}) => {
                 muted={true}
                 loop={true}
             />
-        </Box>
+        </Grid>
     );
 }
 

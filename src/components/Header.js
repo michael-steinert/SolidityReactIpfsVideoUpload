@@ -1,6 +1,5 @@
-import Image from "material-ui-image";
 import Identicon from "identicon.js";
-import {AppBar, Box, Grid, makeStyles, Toolbar, Typography} from "@material-ui/core";
+import {AppBar, Grid, makeStyles, Toolbar, Typography} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -15,11 +14,13 @@ const Header = ({account}) => {
             <Toolbar>
                 <Grid container alignItems={"center"}>
                     <Grid item>
-                        <Typography variant={"subtitle2"}>{account}</Typography>
+                        <Typography variant={"subtitle2"} style={{color:"#000"}}>{account}</Typography>
+                    </Grid>
+                    <Grid item>
                         {
                             account ? (
-                                <Image
-                                    imageStyle={{ width: "30px", height: "30px"}}
+                                <img
+                                    style={{ width: "30px", height: "30px"}}
                                     /* Generating a Identicon for given Address */
                                     src={`data:image/png;base64,${new Identicon(account, 30).toString()}`}
                                     alt="Identicon for given Address"

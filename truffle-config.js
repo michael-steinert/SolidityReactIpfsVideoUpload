@@ -16,18 +16,19 @@ module.exports = {
         ropsten: {
             provider: () => new HDWalletProvider(mnemonic, ROPSTEN_NODE),
             network_id: 3, // Ropsten's ID
-            networkCheckTimeout: 1000000,
+            networkCheckTimeout: 1000000000,
             gas: 5500000, // Ropsten has a lower Gas Limit than Mainnet
             confirmations: 2, // Number of Confirmations to wait between Deployments
-            timeoutBlocks: 200, // Number of Blocks before a Deployment times out
+            timeoutBlocks: 2000, // Number of Blocks before a Deployment times out
             skipDryRun: true // Skip Dry Run before Migrations
         },
         bsctestnet: {
             provider: () => new HDWalletProvider(mnemonic, BSC_TESTNET_NODE),
             network_id: 97, // BSC Testnet's ID
+            networkCheckTimeout: 10000000,
             gas: 1000000, // Gas Limit
             confirmations: 10, // Number of Confirmations to wait between Deployments - 10 Confirmation because Block Time is fast
-            timeoutBlocks: 100, // Number of Blocks before a Deployment times out
+            timeoutBlocks: 1000, // Number of Blocks before a Deployment times out
             skipDryRun: true // Skip Dry Run before Migrations
         }
     },

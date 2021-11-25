@@ -1,11 +1,8 @@
-import {Box, CircularProgress, createTheme, CssBaseline, ThemeProvider} from "@material-ui/core";
-import DecentralizedVideo from "../abis/DecentralizedVideo.json";
-import Header from "./Header";
+import {Box, CircularProgress, createTheme, CssBaseline, Grid, ThemeProvider} from "@material-ui/core";
+import DecentralizedVideo from "./abis/DecentralizedVideo.json";
+import {Header, CurrentVideo, VideoForm, DVideo} from "./components";
 import Web3 from "web3";
 import {useEffect, useState} from "react";
-import CurrentVideo from "./CurrentVideo";
-import VideoForm from "./VideoForm";
-import DVideo from "./DVideo";
 
 const theme = createTheme({
     palette: {
@@ -90,7 +87,6 @@ const App = () => {
         reader.readAsArrayBuffer(file);
         reader.onloadend = () => {
             setBuffer(Buffer(reader.result));
-            console.log("Buffer", buffer)
         }
     }
     /* Uploading the Video to IPFS */
@@ -121,15 +117,19 @@ const App = () => {
     }
     return (
         <ThemeProvider theme={theme}>
-            <Box>
+            <Grid container>
                 <Header account={account}/>
                 {
                     loading ? (
-                        <Box id="loader"><CircularProgress/></Box>
+                        <Box item><CircularProgress/></Box>
                     ) : (
-                        <Box style={{maxHeight: "768px", minWidth: "175px"}}>
-                            <CurrentVideo currentTitle={currentTitle} currentHash={currentHash}/>
-                            <Box>
+                        <Grid container alignItems={"center"}>
+                            {
+                                (currentTitle && currentHash) ?? (
+                                    <CurrentVideo currentTitle={currentTitle} currentHash={currentHash}/>
+                                )
+                            }
+                            <Grid item>
                                 <VideoForm captureFile={captureFile} uploadVideo={uploadVideo}/>
                                 {
                                     videos.map((video, key) => {
@@ -138,11 +138,11 @@ const App = () => {
                                         );
                                     })
                                 }
-                            </Box>
-                        </Box>
+                            </Grid>
+                        </Grid>
                     )
                 }
-            </Box>
+            </Grid>
             <CssBaseline/>
         </ThemeProvider>
     );

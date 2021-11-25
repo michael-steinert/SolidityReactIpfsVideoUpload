@@ -3,7 +3,7 @@ import {Box, Typography} from "@material-ui/core";
 
 const DVideo = ({video, key}) => {
     return (
-        <Box key={key} style={{width: "175px"}}>
+        <Box item key={key} style={{width: "175px"}}>
             <Typography variant={"subtitle2"}>{video.title}</Typography>
             <ReactPlayer
                 url={`https://ipfs.infura.io/ipfs/${video.hash}`}
