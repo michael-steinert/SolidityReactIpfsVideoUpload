@@ -107,34 +107,33 @@ const App = () => {
             .send({from: account})
             /* Waiting until Feedback from Transaction */
             .on("transactionHash", (hash) => {
+                /* Changing the Videos on the Website */
+                setCurrentHash(hash);
+                setCurrentTitle(title);
                 setLoading(false);
             });
     }
-    /* Changing the Videos on the Website */
-    const changeVideo = (hash, title) => {
-        setCurrentHash(hash);
-        setCurrentTitle(title);
-    }
+
     return (
         <ThemeProvider theme={theme}>
             <Grid container>
                 <Header account={account}/>
                 {
                     loading ? (
-                        <Box item><CircularProgress/></Box>
+                        <Grid item xs={12}><CircularProgress/></Grid>
                     ) : (
                         <Grid container alignItems={"center"}>
+                            <VideoForm captureFile={captureFile} uploadVideo={uploadVideo}/>
                             {
-                                (currentTitle && currentHash) ?? (
+                                (currentTitle && currentHash) && (
                                     <CurrentVideo currentTitle={currentTitle} currentHash={currentHash}/>
                                 )
                             }
-                            <Grid item>
-                                <VideoForm captureFile={captureFile} uploadVideo={uploadVideo}/>
+                            <Grid item xs={12}>
                                 {
-                                    videos.map((video, key) => {
+                                    videos?.map((video, index) => {
                                         return (
-                                            <DVideo video={video} key={key}/>
+                                            <DVideo video={video} key={index}/>
                                         );
                                     })
                                 }

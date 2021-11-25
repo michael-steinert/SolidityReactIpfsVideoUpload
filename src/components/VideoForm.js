@@ -1,10 +1,10 @@
 import {useState} from "react";
-import {Box, Typography} from "@material-ui/core";
+import {Grid, Typography} from "@material-ui/core";
 
 const VideoForm = ({captureFile, uploadVideo}) => {
     const [title, setTitle] = useState("");
     return (
-        <Box>
+        <Grid item xs={12}>
             <Typography variant={"subtitle2"}>Share Video</Typography>
             <form onSubmit={(event) => {
                 event.preventDefault();
@@ -21,11 +21,11 @@ const VideoForm = ({captureFile, uploadVideo}) => {
                     type="text"
                     placeholder="Video Title"
                     onChange={event => setTitle(event.target.value)}
-                    required={true}
+                    required
                 />
                 <button type="submit">Upload</button>
             </form>
-        </Box>
+        </Grid>
     );
 }
 

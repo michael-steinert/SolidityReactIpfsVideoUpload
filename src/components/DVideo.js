@@ -1,15 +1,19 @@
 import ReactPlayer from "react-player";
-import {Box, Typography} from "@material-ui/core";
+import {Grid, Typography} from "@material-ui/core";
 
-const DVideo = ({video, key}) => {
+const DVideo = ({video, index}) => {
     return (
-        <Box item key={key} style={{width: "175px"}}>
-            <Typography variant={"subtitle2"}>{video.title}</Typography>
+        <Grid item key={index}>
+            <Typography variant={"subtitle1"}>{video.title}</Typography>
             <ReactPlayer
                 url={`https://ipfs.infura.io/ipfs/${video.hash}`}
-                width={"150px"}
+                playing={false}
+                width={"350px"}
+                controls={true}
+                muted={true}
+                loop={true}
             />
-        </Box>
+        </Grid>
     );
 }
 
