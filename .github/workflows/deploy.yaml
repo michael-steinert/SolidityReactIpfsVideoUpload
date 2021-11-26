@@ -25,7 +25,8 @@ jobs:
       - name: Deploy to Netlify
         uses: netlify/actions/cli@master
         env:
-          REACT_APP_MY_SECRET: ${{ secrets.MY_SECRET }}
+          BSC_TESTNET_NODE: ${{ secrets.BSC_TESTNET_NODE }}
+          ROPSTEN_TESTNET_NODE: ${{ secrets.ROPSTEN_TESTNET_NODE }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.DEV_NETLIFY_SITE_ID }}
         with:
