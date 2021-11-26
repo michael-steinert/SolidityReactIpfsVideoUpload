@@ -1,9 +1,7 @@
 require("dotenv").config();
 /* Truffle build-in Wallet */
 const HDWalletProvider = require("@truffle/hdwallet-provider");
-/* Getting the Mnemonic */
-const mnemonic = require("./secrets.json").mnemonic;
-const {ROPSTEN_NODE, BSC_TESTNET_NODE} = process.env;
+const {PRIVATE_KEY, ROPSTEN_NODE, BSC_TESTNET_NODE} = process.env;
 
 module.exports = {
     // Configure Networks
@@ -14,7 +12,7 @@ module.exports = {
             network_id: "*", // Any Network
         },
         ropsten: {
-            provider: () => new HDWalletProvider(mnemonic, ROPSTEN_NODE),
+            provider: () => new HDWalletProvider(PRIVATE_KEY, ROPSTEN_NODE),
             network_id: 3, // Ropsten's ID
             networkCheckTimeout: 1000000000,
             gas: 5500000, // Ropsten has a lower Gas Limit than Mainnet
@@ -23,7 +21,7 @@ module.exports = {
             skipDryRun: true // Skip Dry Run before Migrations
         },
         bsctestnet: {
-            provider: () => new HDWalletProvider(mnemonic, BSC_TESTNET_NODE),
+            provider: () => new HDWalletProvider(PRIVATE_KEY, BSC_TESTNET_NODE),
             network_id: 97, // BSC Testnet's ID
             networkCheckTimeout: 10000000,
             gas: 1000000, // Gas Limit

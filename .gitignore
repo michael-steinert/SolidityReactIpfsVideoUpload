@@ -1,9 +1,6 @@
 # intellij
 .idea
 
-# Mnemonics
-secrets.json
-
 # dependencies
 /node_modules
 /.pnp

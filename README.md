@@ -72,7 +72,7 @@ await web3.eth.getAccounts()
 6) Get the Balance of the Deployment Account
 
 ```shell
-await web3.eth.getBalance("0xBA0a8b23F719390FB15F037660fdf7B4c8b1c6dC")
+await web3.eth.getBalance("0x079441AcB5253CF6065a7361DE63E70bE6909f7a")
 ```
 
 7) Migrate the Smart Contracts in the configured (--network bsctestnet) Console
