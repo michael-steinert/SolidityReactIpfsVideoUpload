@@ -28,10 +28,9 @@ jobs:
           ROPSTEN_TESTNET_NODE: ${{ secrets.ROPSTEN_TESTNET_NODE }}
       # Deploy to Netlify using Secrets
       - name: Deploy to Netlify
-        uses: netlify/actions/cli@master
+        uses: nwtgck/actions-netlify@v1.2
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.DEV_NETLIFY_SITE_ID }}
         with:
-          args: deploy --dir=build --prod
-          secrets: '["DEV_NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
+          deploy-message: "Deployed from GitHub Actions"
