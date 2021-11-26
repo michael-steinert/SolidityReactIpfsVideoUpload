@@ -1,4 +1,4 @@
-import {Box, CircularProgress, createTheme, CssBaseline, Grid, ThemeProvider} from "@material-ui/core";
+import {CircularProgress, createTheme, CssBaseline, Grid, ThemeProvider} from "@material-ui/core";
 import DecentralizedVideo from "./abis/DecentralizedVideo.json";
 import {Header, CurrentVideo, VideoForm, DVideo} from "./components";
 import Web3 from "web3";
@@ -113,23 +113,22 @@ const App = () => {
                 setLoading(false);
             });
     }
-
     return (
         <ThemeProvider theme={theme}>
             <Grid container>
                 <Header account={account}/>
                 {
                     loading ? (
-                        <Grid item xs={12}><CircularProgress/></Grid>
+                        <Grid item><CircularProgress/></Grid>
                     ) : (
-                        <Grid container alignItems={"center"}>
+                        <Grid container direction={"column"}>
                             <VideoForm captureFile={captureFile} uploadVideo={uploadVideo}/>
                             {
                                 (currentTitle && currentHash) && (
                                     <CurrentVideo currentTitle={currentTitle} currentHash={currentHash}/>
                                 )
                             }
-                            <Grid item xs={12}>
+                            <Grid container>
                                 {
                                     videos?.map((video, index) => {
                                         return (

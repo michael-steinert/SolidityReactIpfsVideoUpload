@@ -1,7 +1,7 @@
 import Identicon from "identicon.js";
 import {AppBar, Grid, makeStyles, Toolbar, Typography} from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     root: {
         backgroundColor: "#fff",
     }
@@ -13,19 +13,23 @@ const Header = ({account}) => {
         <AppBar position={"static"} className={classes.root}>
             <Toolbar>
                 <Grid container alignItems={"center"}>
-                    <Grid item>
-                        <Typography variant={"subtitle2"} style={{color:"#000"}}>{account}</Typography>
+                    <Grid item xs={6}>
+                        <Typography variant={"subtitle2"} style={{color: "#000"}}>Your Address: {account}</Typography>
                     </Grid>
-                    <Grid item>
+                    <Grid item xs={6}>
                         {
                             account ? (
-                                <img
-                                    style={{ width: "30px", height: "30px"}}
-                                    /* Generating a Identicon for given Address */
-                                    src={`data:image/png;base64,${new Identicon(account, 30).toString()}`}
-                                    alt="Identicon for given Address"
-                                />
-                            ): (<Typography variant={"subtitle1"}>No Identicon possible for current Address</Typography>)
+                                <>
+                                    <Typography variant={"subtitle2"} style={{color: "#000"}}>Your Identicon:</Typography>
+                                    <img
+                                        style={{width: "30px", height: "30px"}}
+                                        /* Generating a Identicon for given Address */
+                                        src={`data:image/png;base64,${new Identicon(account, 30).toString()}`}
+                                        alt="Identicon for given Address"
+                                    />
+                                </>
+                            ) : (<Typography variant={"subtitle1"}>No Identicon possible for current
+                                Address</Typography>)
                         }
                     </Grid>
                 </Grid>
