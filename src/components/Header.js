@@ -20,7 +20,7 @@ const Header = ({account}) => {
                         {
                             account ? (
                                 <>
-                                    <Typography variant={"subtitle2"} style={{color: "#000"}}>Your Identicon:</Typography>
+                                    <Typography variant={"subtitle2"} style={{color: "#000"}}>Your Ienticon: </Typography>
                                     <img
                                         style={{width: "30px", height: "30px"}}
                                         /* Generating a Identicon for given Address */
@@ -28,8 +28,7 @@ const Header = ({account}) => {
                                         alt="Identicon for given Address"
                                     />
                                 </>
-                            ) : (<Typography variant={"subtitle1"}>No Identicon possible for current
-                                Address</Typography>)
+                            ) : (<Typography variant={"subtitle1"}>No Identicon possible for current Address</Typography>)
                         }
                     </Grid>
                 </Grid>
