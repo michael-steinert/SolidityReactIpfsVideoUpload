@@ -21,12 +21,13 @@ jobs:
       # Run npm install and build on Code
       - run: npm install
       - run: npm run build
+        env:
+          BSC_TESTNET_NODE: ${{ secrets.BSC_TESTNET_NODE }}
+          ROPSTEN_TESTNET_NODE: ${{ secrets.ROPSTEN_TESTNET_NODE }}
       # Deploy to Netlify using Secrets
       - name: Deploy to Netlify
         uses: netlify/actions/cli@master
         env:
-          BSC_TESTNET_NODE: ${{ secrets.BSC_TESTNET_NODE }}
-          ROPSTEN_TESTNET_NODE: ${{ secrets.ROPSTEN_TESTNET_NODE }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.DEV_NETLIFY_SITE_ID }}
         with:
