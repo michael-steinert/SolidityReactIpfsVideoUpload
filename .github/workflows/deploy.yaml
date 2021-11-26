@@ -18,8 +18,8 @@ jobs:
         uses: actions/setup-node@master
         with:
           node-version: 16
-      # Run npm ci (clean install) and build on Code
-      - run: npm ci
+      # Run npm install and build on Code
+      - run: npm install
       - run: npm run build
       # Deploy to Netlify using Secrets
       - name: Deploy to Netlify
