@@ -2,9 +2,9 @@
 
 * Fully decentralized Application published on IPFS
 
-## Interaction with the Smart Contract
+## Interaction with decentralized Applications
 
-![Interaction with Smart Contract](https://user-images.githubusercontent.com/29623199/121769335-4c76ff80-cb63-11eb-91fa-26f0f05f32ef.JPG)
+![Interaction with decentralized Applications](https://user-images.githubusercontent.com/29623199/143569712-e22280b5-d2ed-4073-aa47-63a075f26c66.png)
 
 * Create, compile, deploy and add a Smart Contract to a Blockchain
 * Interaction with Smart Contract:
