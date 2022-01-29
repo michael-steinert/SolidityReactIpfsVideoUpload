@@ -4,7 +4,7 @@
 
 ## Interaction with decentralized Applications
 
-![Interaction with decentralized Applications](https://user-images.githubusercontent.com/29623199/143569712-e22280b5-d2ed-4073-aa47-63a075f26c66.png)
+![Interaction with decentralized Applications](https://user-images.githubusercontent.com/29623199/151659198-4e2ca988-3b26-4874-95b8-333db435cb74.png)
 
 * Create, compile, deploy and add a Smart Contract to a Blockchain
 * Interaction with Smart Contract:
